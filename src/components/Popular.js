@@ -1,12 +1,38 @@
 import React, { Component } from 'react';
 
 class Popular extends Component {
+	constructor (props) {
+		super(props);
+		this.state = {
+			selectedLanguage: 'All'
+		};
+
+		this.updateLanguage = this.updateLanguage.bind(this);
+	}
+
+	updateLanguage(lang) {
+		this.setState({selectedLanguage: lang});
+	}
+
 	render() {
 
+		let languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
+
 		return (
-			<div className="container">
-				<h1 className="title">Popular</h1>
-			</div>
+			<ul className="languages">
+				<p>Selected language: {this.state.selectedLanguage}</p>
+				{languages.map((lang) => {
+
+					return (
+						<li
+						style={lang === this.state.selectedLanguage ? { color: 'red'} : null }
+						onClick={this.updateLanguage.bind(null, lang)}
+						key={lang}>
+							{lang}
+						</li>
+					)
+				})}
+			</ul>
 		);
 	}
 }

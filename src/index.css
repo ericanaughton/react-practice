@@ -1,5 +1,9 @@
-body {
-  margin: 0
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
 }
 
 .container {
@@ -7,6 +11,13 @@ body {
   margin: 0 auto;
 }
 
-.center {
-  text-align: center;
+.languages {
+  display: flex;
+  justify-content: center;
+}
+
+.languages li {
+  margin: 10px;
+  font-weight: bold;
+  cursor: pointer;
 }
